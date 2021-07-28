@@ -3,9 +3,11 @@
 function responseCallback (response) {
     if(response.success){
         location.reload()
-        userManager.setMessage(true, "Успешно!");
+        userForm.setLoginErrorMessage(true, "Успешно!");
+        userForm.setRegisterErrorMessage(true, "Успешно!");
     } else {
-        userManager.setMessage(false, "Ошибка: " + response.error);
+        userForm.setRegisterErrorMessage(false, "Ошибка: " + response.error);
+        userForm.setLoginErrorMessage(false, "Ошибка: " + response.error);
         return response.data;
     }
 }
