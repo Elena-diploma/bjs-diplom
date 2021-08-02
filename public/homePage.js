@@ -76,8 +76,6 @@ favoritesWidget.removeUserCallback = (data) => {
 }
 function userCallback (response) {
     if(response.success){
-        console.log(123);
-        ProfileWidget.showProfile(response.data)
         userManager.setMessage(true, "Успешно!");
         favoritesWidget.clearTable();
         favoritesWidget.fillTable(response.data);

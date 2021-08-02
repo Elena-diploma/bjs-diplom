@@ -3,11 +3,9 @@
 function responseCallback (response) {
     if(response.success){
         location.reload()
-        userForm.setLoginErrorMessage(true, "Успешно!");
-        userForm.setRegisterErrorMessage(true, "Успешно!");
     } else {
-        userForm.setRegisterErrorMessage(false, "Ошибка: " + response.error);
-        userForm.setLoginErrorMessage(false, "Ошибка: " + response.error);
+        userForm.setRegisterErrorMessage("Произошла ошибка");
+        userForm.setLoginErrorMessage("Произошла ошибка");
         return response.data;
     }
 }
@@ -19,6 +17,6 @@ userForm.loginFormCallback = (data) => {
 }
 
 userForm.registerFormCallback = (data) => {
-    ApiConnector.login(data, responseCallback);
+    ApiConnector.register(data, responseCallback);
 }
 
